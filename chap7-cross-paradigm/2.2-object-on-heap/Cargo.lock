@@ -9,8 +9,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c19937216e9d3aa9956d9bb8dfc0b0c8beb6058fc4f7a4dc4d850edf86a237d6"
 
 [[package]]
-name = "object-on-stack"
+name = "memory-management"
+version = "0.1.0"
+
+[[package]]
+name = "object-as-resource-owner"
 version = "0.1.0"
 dependencies = [
  "libc",
+]
+
+[[package]]
+name = "object-on-heap"
+version = "0.1.0"
+dependencies = [
+ "memory-management",
+ "object-as-resource-owner",
 ]
