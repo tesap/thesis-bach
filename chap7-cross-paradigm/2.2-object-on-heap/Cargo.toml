@@ -7,5 +7,8 @@ edition = "2024"
 object-as-resource-owner = { path = "../1-object-as-resource-owner/" }
 memory-management = { path = "../../chap4-memory-management/" }
 
-# [[bin]]
-# name = "single_main"
+[[bin]]
+name = "single_data"
+
+[[bin]]
+name = "single_file"

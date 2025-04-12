@@ -1,10 +1,8 @@
-mod single;
-
 use memory_management::Data;
-use single::{object_alloc, object_init, object_deinit, object_dealloc};
-
+use object_on_heap::{object_alloc, object_init, object_deinit, object_dealloc};
 
 fn main() {
+    println!("SINGLE MAIN");
     let d: Data = Data { x1: 1, x2: 2, x3: 3};
     let p: *mut Data = object_alloc();
     unsafe {

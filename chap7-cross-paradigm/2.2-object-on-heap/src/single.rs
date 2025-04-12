@@ -2,7 +2,6 @@ use std::alloc;
 use std::ptr;
 
 
-
 pub fn object_alloc<T>() -> *mut T {
     let layout = alloc::Layout::new::<T>();
     unsafe {
