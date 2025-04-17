@@ -1,0 +1,15 @@
+[package]
+name = "object-on-stack"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# For 'File' class
+object-as-resource-owner = { path = "../1-object-as-resource-owner/" }
+# memory-management = { path = "../../chap4-memory-management/" }
+
+[[bin]]
+name = "transfer_assignment"
+
+[[bin]]
+name = "transfer_func"

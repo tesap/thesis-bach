@@ -7,6 +7,7 @@ public:
     int fd{-1};
 
     explicit File(char* filename) {
+        std::cout << "--- Constructor\n";
         fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0644);
     }
 
@@ -18,11 +19,13 @@ public:
 
     // Copy constructor
     File(const File& other) {
+        std::cout << "--- Copy constructor\n";
         fd = dup(other.fd);
     }
 
     // Move constructor
-    File(File&& other) noexcept {
+    File(File&& other) {
+        std::cout << "--- Move constructor\n";
         fd = other.fd;
 
         // Invalidate the moved-from without cleanup
@@ -30,7 +33,7 @@ public:
     }
 
     File& operator=(File&& other) noexcept {
-        std::cout << "Move operator\n";
+        std::cout << "--- Move assignment op.\n";
         if (this != &other) {
             // ~File();
             reset();
@@ -43,6 +46,17 @@ public:
         }
         return *this;
     }
+
+
+    /*File& operator=(File&& other) noexcept {*/
+    /*    std::cout << "--- Copy assignment op.\n";*/
+    /*    if (this != &other) {*/
+    /*        // ~File();*/
+    /*        reset();*/
+    /*    }*/
+    /*    return *this;*/
+    /*}*/
+    /**/
 private:
     void reset() {
         std::cout << "RESET\n";
