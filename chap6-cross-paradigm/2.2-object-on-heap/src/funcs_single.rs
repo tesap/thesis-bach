@@ -16,8 +16,12 @@ pub fn object_dealloc<T>(ptr: *mut T) {
     }
 }
 
-pub unsafe fn object_init<T: Clone>(ptr: *mut T, init_value: &T) {
-    ptr::write(ptr, init_value.clone());
+//pub unsafe fn object_init_clone<T: Clone>(ptr: *mut T, init_value: &T) {
+//    ptr::write(ptr, init_value.clone());
+//}
+
+pub unsafe fn object_init_move<T>(ptr: *mut T, init_value: T) {
+    ptr::write(ptr, init_value);
 }
 
 pub unsafe fn object_deinit<T>(ptr: *mut T) {
