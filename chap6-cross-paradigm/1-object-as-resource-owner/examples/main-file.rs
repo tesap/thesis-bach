@@ -1,5 +1,6 @@
-mod file;
-use crate::file::File;
+// mod file;
+// use crate::File;
+use object_as_resource_owner::File;
 
 fn main() {
     let mut f1 = File::new("file1.txt");

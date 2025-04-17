@@ -1,7 +1,7 @@
 
 #include<iostream>
 
-#include "single.cpp"
+#include "funcs_single.cpp"
 #include "../../1-object-as-resource-owner/cpp/file.cpp"
 
 int main() {

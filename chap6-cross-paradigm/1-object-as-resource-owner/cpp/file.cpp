@@ -7,25 +7,26 @@ public:
     int fd{-1};
 
     explicit File(char* filename) {
-        std::cout << "--- Constructor\n";
+        std::cout << "--- new ---\n";
         fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0644);
     }
 
     // Destructor
     ~File() {
+        std::cout << "--- Drop ---\n";
         reset();
     }
 
 
     // Copy constructor
     File(const File& other) {
-        std::cout << "--- Copy constructor\n";
+        std::cout << "--- Copy constr. ---\n";
         fd = dup(other.fd);
     }
 
     // Move constructor
     File(File&& other) {
-        std::cout << "--- Move constructor\n";
+        std::cout << "--- Move constr. ---\n";
         fd = other.fd;
 
         // Invalidate the moved-from without cleanup
@@ -33,7 +34,7 @@ public:
     }
 
     File& operator=(File&& other) noexcept {
-        std::cout << "--- Move assignment op.\n";
+        std::cout << "--- Move assignment op. ---\n";
         if (this != &other) {
             // ~File();
             reset();

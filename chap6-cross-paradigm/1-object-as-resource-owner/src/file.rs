@@ -13,6 +13,7 @@ pub struct File {
 impl File {
     // Constructor
     pub fn new(filename: &str) -> Self {
+        println!("--- new ---");
         let fd = open(filename);
         Self { fd }
     }
@@ -21,6 +22,7 @@ impl File {
 // Implementation of `Clone` trait
 impl Clone for File {
     fn clone(&self) -> Self {
+        println!("--- Clone ---");
         let fd_dup: i32 = unsafe { libc::dup(self.fd) };
         Self { fd: fd_dup }
     }
@@ -29,12 +31,19 @@ impl Clone for File {
 impl Drop for File {
     // Destructor
     fn drop(&mut self) {
+        println!("--- Drop ---");
         if self.fd > 0 {
             unsafe {
                 libc::close(self.fd);
             }
             self.fd = -1;
         }
+    }
+}
+
+impl Default for File {
+    fn default() -> File {
+        File::new("def.txt")
     }
 }
 

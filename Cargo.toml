@@ -1,0 +1,19 @@
+
+[workspace]
+members = [
+    "./chap4-memory-management",
+    "./chap6-cross-paradigm/1-object-as-resource-owner",
+    "./chap6-cross-paradigm/2.1-object-on-stack",
+    "./chap6-cross-paradigm/2.2-object-on-heap",
+    "./chap6-cross-paradigm/2.3-elevating-heap",
+]
+resolver = "2"
+
+
+[workspace.dependencies]
+memory-management = { path = "./chap4-memory-management" }
+object-as-resource-owner = { path = "./chap6-cross-paradigm/1-object-as-resource-owner" }
+object-on-stack = { path = "./chap6-cross-paradigm/2.1-object-on-stack" }
+object-on-heap = { path = "./chap6-cross-paradigm/2.2-object-on-heap" }
+
+
