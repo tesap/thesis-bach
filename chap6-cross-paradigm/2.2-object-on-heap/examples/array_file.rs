@@ -1,5 +1,5 @@
 use object_as_resource_owner::File;
-use object_on_heap::{array_init_move, array_alloc, array_deinit, array_dealloc};
+use object_on_heap::{array_init, array_alloc, array_deinit, array_dealloc};
 
 fn main() {
     println!("ARRAY MAIN");
@@ -7,9 +7,9 @@ fn main() {
     let ptr: *mut File = array_alloc(size);
 
     unsafe {
-        array_init_move(ptr, 0, File::new("file1.txt"));
-        array_init_move(ptr, 1, File::new("file2.txt"));
-        array_init_move(ptr, 2, File::new("file3.txt"));
+        array_init(ptr, 0, File::new("file1.txt"));
+        array_init(ptr, 1, File::new("file2.txt"));
+        array_init(ptr, 2, File::new("file3.txt"));
     }
 
 

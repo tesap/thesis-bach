@@ -23,7 +23,7 @@ pub unsafe fn array_dealloc<T>(ptr: *mut T, size: usize) {
 //    }
 //}
 
-pub unsafe fn array_init_move<T>(ptr: *mut T, index: usize, init_value: T) {
+pub unsafe fn array_init<T>(ptr: *mut T, index: usize, init_value: T) {
     ptr::write(ptr.add(index), init_value); // Enforces Move
 }
 

@@ -6,7 +6,7 @@ version = 4
 name = "elevating-heap"
 version = "0.1.0"
 dependencies = [
- "object-as-resource-owner",
+ "object-on-heap",
 ]
 
 [[package]]
