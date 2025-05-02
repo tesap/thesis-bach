@@ -18,9 +18,12 @@ unsafe fn object_init<T>(ptr: *mut T, init_value: T) {
 }
 
 
-pub unsafe fn object_alloc_init<T>(init_value: T) -> *mut T {
+pub fn object_alloc_init<T>(init_value: T) -> *mut T {
     let ptr: *mut T = object_alloc();
-    object_init(ptr, init_value); // Move
+    // SAFETY: ptr is guaranteed to serve allocated value
+    unsafe {
+        object_init(ptr, init_value); // Move
+    }
     ptr
 }
 
@@ -36,6 +39,6 @@ unsafe fn object_deinit<T>(ptr: *mut T) {
 }
 
 pub unsafe fn object_dealloc_deinit<T>(ptr: *mut T) {
-    object_dealloc(ptr);
     object_deinit(ptr);
+    object_dealloc(ptr);
 }

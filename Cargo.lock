@@ -7,6 +7,7 @@ name = "elevating-heap"
 version = "0.1.0"
 dependencies = [
  "object-on-heap",
+ "unique",
 ]
 
 [[package]]
@@ -40,3 +41,9 @@ version = "0.1.0"
 dependencies = [
  "object-as-resource-owner",
 ]
+
+[[package]]
+name = "unique"
+version = "0.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d360722e1f3884f5b14d332185f02ff111f771f0c76a313268fe6af1409aba96"

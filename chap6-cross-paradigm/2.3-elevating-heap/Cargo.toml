@@ -6,3 +6,4 @@ edition = "2024"
 [dependencies]
 # object-as-resource-owner = { workspace = true }
 object-on-heap = { workspace = true }
+unique = "0.9.1"
